@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            rock paper scissor
+        
+        </title>
+
+    </head>
+    <body>
+        <h1>play rock paper scissors with 5 match series!</h1>
+        <button onclick="game()">click to play</button>
+        <script>
+
+            function computerPlay(){
+                let x=Math.floor(Math.random()*3);
+                if (x==0){
+                    return "rock";
+                }
+                else if (x==1){
+                    return "paper";
+                }
+                else{
+                    return "scissors";
+                }
+            }
+
+            function game(){
+            let score=0;
+            for(let i=0;i<5;i++){
+
+            let playerSelection = prompt("Enter Rock,Paper or Scissors","Rock");
+            let computerSelection=computerPlay();
+            alert("you selected :" + playerSelection + "\n computer selected :"+ computerSelection + "\n "+ playRound(playerSelection, computerSelection))
+
+            function playRound(playerSelection, computerSelection){
+                let ps=playerSelection.toLowerCase();
+                let cs=computerSelection.toLowerCase();
+                if (cs=="rock"){
+                    if (ps=="rock"){
+                        return "match draw";
+                    }
+                    else if(ps=="paper"){
+                        return "you won!";
+                    }
+                    else if (ps=="scissors"){
+                        return "you loss";
+                    }
+                    else{
+                        return "wrong value";
+                    }
+                }
+                
+                    if (cs=="paper"){
+                    if (ps=="rock"){
+                        return "you lose";
+                    }
+                    else if(ps=="paper"){
+                        return "match draw";
+                    }
+                    else if (ps=="scissors"){
+                        return "you won!";
+                    }
+                    else{
+                        return "wrong value";
+                    }
+                    }
+
+                    
+                    if (cs=="scissors"){
+                    if (ps=="rock"){
+                        return "you won!";
+                    }
+                    else if(ps=="paper"){
+                        return "you lose";
+                    }
+                    else if (ps=="scissors"){
+                        return "match draw";
+                    }
+                    else{
+                        return "wrong value";
+                    }
+                    }
+            }
+            console.log(playRound(playerSelection, computerSelection));
+            abc=playRound(playerSelection, computerSelection);
+            if (abc=="you won!"){
+                score+=1;
+            }
+
+            }
+            if (score>2){
+                console.log("your score is :",score," you won the series!");
+
+            }
+            else{
+                console.log("you lose the series!")
+            }
+            }
+
+            
+
+
+
+
+
+
+        </script>
+
+    </body>
+</html>
